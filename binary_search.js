@@ -17,9 +17,17 @@ function binear_search(array, target) {
   }
 }
 //sort numbers
-// const sorted = numbers.sort(function (a, b) {
-//   return a - b;
-// });
+function bubble_sort(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length - 1; j++) {
+      if (array[j] > array[j + 1]) {
+        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+      }
+    }
+  }
+  return array;
+}
+const sorted = bubble_sort(numbers);
 
-const index = binear_search(numbers, 10);
+const index = binear_search(sorted, 40);
 console.log(index);
