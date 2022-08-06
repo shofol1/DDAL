@@ -1,7 +1,7 @@
 const person = {
   firstName: "Ashikul",
   lastName: "shofol",
-  age: "male",
+  gender: "male",
 };
 
 console.log(person.lastName); //dot notation
