@@ -13,3 +13,6 @@ const nameKey = "Name";
 console.log(person["first" + nameKey]);
 
 //this not work for dot notation
+
+person["address"] = "saidpure";
+console.log(person);
