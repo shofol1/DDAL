@@ -24,3 +24,15 @@ console.log(indexOfAkash);
 const checkOne = friends.includes("John");
 const checkTwo = friends.includes("shanto");
 console.log(checkOne, checkTwo);
+
+const person = [
+  "shofol",
+  2022 - 1998,
+  ["web developer", "mern stack developer"],
+  true,
+];
+const types = [];
+for (i = 0; i < person.length; i++) {
+  types.push(typeof person[i]);
+}
+console.log(types);
