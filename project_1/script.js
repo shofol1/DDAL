@@ -81,3 +81,18 @@ againBtn.addEventListener("click", () => {
   hideNumber.style.width = "80px";
   guessNumber.value = "";
 });
+
+// modal code
+const modalOpenBtn = document.querySelectorAll(".btn-modal");
+const modalCloseBtn = document.querySelector(".close-modal");
+const modal = document.querySelector(".moddal");
+const overlay = document.querySelector(".overlay-hidden ");
+const closeModal = () => {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+for (let i = 0; i < modalOpenBtn.length; i++) {
+  modalOpenBtn[i].addEventListener("click", closeModal());
+}
+modalCloseBtn.addEventListener("click", closeModal());

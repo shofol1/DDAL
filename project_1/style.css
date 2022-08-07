@@ -9,7 +9,52 @@ body {
   background-color: #000;
   color: #fff;
 }
+.full {
+}
 input {
   height: 100px;
   outline: none;
+}
+
+.overlay-hidden {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 0, 0, 0.435);
+}
+.moddal {
+  position: absolute;
+  left: 530px;
+  top: 30px;
+  width: 500px;
+  height: 500;
+  z-index: 10;
+}
+.hidden {
+  display: none;
+}
+@media only screen and (max-width: 770px) {
+  .btw-text {
+    font-size: 14px !important;
+  }
+  .guess-text {
+    font-size: 14px !important;
+  }
+  .hide-number {
+    margin-left: 93px !important;
+  }
+}
+
+@media only screen and (max-width: 526px) {
+  .btw-text {
+    font-size: 12px !important;
+  }
+  .guess-text {
+    font-size: 12px !important;
+  }
+  .hide-number {
+    margin-left: 67px !important;
+  }
 }
