@@ -7,45 +7,77 @@ const checkBtn = document.querySelector(".checkBtn");
 const message = document.querySelector(".message");
 const scoreField = document.querySelector(".score");
 const highScoreField = document.querySelector(".highScore");
-
+const body = document.querySelector("body");
+const hideNumber = document.querySelector(".hide-number ");
 //set default score
 let score = 20;
 let highScore = 0;
 
 //random number set in guess numbber
+let numberRandom = Math.trunc(Math.random() * 20 + 1);
 
-const numberRandom = Math.trunc(Math.random() * 20 + 1);
-secret.textContent = numberRandom;
+//show message function
+const displayMessage = (mes) => {
+  message.textContent = mes;
+};
 
 //add event in check btn
 checkBtn.addEventListener("click", () => {
   const guess = Number(guessNumber.value);
   //empty field
   if (!guess) {
-    message.textContent = "⛔️ No result ";
+    displayMessage("⛔️ No result ");
   }
   //check correct or incorrect
   else if (guess === numberRandom) {
-    message.textContent = "🎉 Correct Number !";
-    highScore++;
-    highScoreField.textContent = highScore;
-  } else if (guess > numberRandom) {
+    displayMessage("🎉 Correct Number !");
+    hideNumber.style.width = "130px";
+    body.style.backgroundColor = "green";
+
+    secret.textContent = numberRandom;
+    highScoreField.textContent = guess;
+  } else if (guess !== numberRandom) {
     if (score > 1) {
-      message.textContent = "🥲 Number is high!";
+      guess > numberRandom
+        ? displayMessage("🥲 Number is high!")
+        : displayMessage("🥲 Number is low!");
       score--;
       scoreField.textContent = score;
     } else {
-      message.textContent = "😒You lost the game!";
-      scoreField.textContent = 0;
-    }
-  } else if (guess < numberRandom) {
-    if (score > 1) {
-      message.textContent = "🥲 Number is low!";
-      score--;
-      scoreField.textContent = score;
-    } else {
-      message.textContent = "😒You lost the game!";
+      displayMessage("😒You lost the game!");
       scoreField.textContent = 0;
     }
   }
+  //   else if (guess > numberRandom) {
+  //     if (score > 1) {
+  //       message.textContent = "🥲 Number is high!";
+  //       score--;
+  //       scoreField.textContent = score;
+  //     } else {
+  //       message.textContent = "😒You lost the game!";
+  //       scoreField.textContent = 0;
+  //     }
+  //   } else if (guess < numberRandom) {
+  //     if (score > 1) {
+  //       message.textContent = "🥲 Number is low!";
+  //       score--;
+  //       scoreField.textContent = score;
+  //     } else {
+  //       message.textContent = "😒You lost the game!";
+  //       scoreField.textContent = 0;
+  //     }
+  //   }
+});
+
+//reset all
+
+againBtn.addEventListener("click", () => {
+  score = 20;
+  message.textContent = "Start Guessing.....";
+  numberRandom = Math.trunc(Math.random() * 20 + 1);
+  secret.textContent = "?";
+  scoreField.textContent = score;
+  body.style.backgroundColor = "#000";
+  hideNumber.style.width = "80px";
+  guessNumber.value = "";
 });
