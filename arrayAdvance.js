@@ -24,7 +24,7 @@ const mcq = [
 ];
 const ques = document.getElementById("ques");
 
-console.log(ques);
+console.table(mcq);
 mcq.map((q, i) => {
   document.write(`<h2 key=${i}}>${q.ques}</h2>`);
   q.options.map((o) => {
