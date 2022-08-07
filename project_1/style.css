@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "PixelColeco";
+  src: url("./PixelColeco.otf") format("opentype");
+}
+* {
+  font-family: "PixelColeco";
+}
+body {
+  background-color: #000;
+  color: #fff;
+}
+input {
+  height: 100px;
+  outline: none;
+}
